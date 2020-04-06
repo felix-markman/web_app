@@ -2,10 +2,12 @@
 const express = require('express');
 
 const app = express();
+app.use(express.static('public'));
 
 // create a route for the app
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('/', (request, response) => {
+  response.sendFile('index.html');
+  console.log('GET request made.');
 });
 
 // make the server listen to requests
